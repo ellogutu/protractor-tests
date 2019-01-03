@@ -157,29 +157,12 @@ describe('Login', function() {
         }, 10000);
     });
 
-    /*it('should add default client + save + redirect to Qs page', function() { 
-      browser.driver.sleep(2000);
-      var clientName =  browser.driver.findElement(by.css('.reg-input:nth-child(6) select')); 
-      clientName.click().then(function() {
-        browser.driver.sleep(2000);
-        var option =  browser.driver.findElement(by.css('.reg-input:nth-child(6) select option:nth-child(11)'));
-        option.click().then(function() {
-          browser.driver.sleep(2000);
-          browser.driver.findElement(by.css('[data-bind="click:saveAndContinue"]')).click().then(function() {
-            browser.driver.sleep(2000);
-            expect(browser.getTitle()).toEqual('Create/Update Poll');
-            browser.driver.sleep(20000);
-          }, 10000);
-        }, 10000);
-      }, 10000);
-    });*/
-
     it('should add default client', function() { 
       browser.driver.sleep(2000);
       var clientName =  browser.driver.findElement(by.css('.form-group:nth-child(3)')); 
       clientName.click().then(function() {
         browser.driver.sleep(2000);
-        var option =  browser.driver.findElement(by.css('.form-group:nth-child(3) option:nth-child(11)'));
+        var option =  browser.driver.findElement(by.css('.form-group:nth-child(3) option:nth-child(13)'));
         option.click().then(function() {
           browser.driver.sleep(2000);
           browser.driver.findElement(by.css('[data-bind="click:saveAndContinue"]')).click().then(function() {
@@ -191,7 +174,7 @@ describe('Login', function() {
       }, 10000);
     });
 
-    it ('should add 10 as default cost/complete', function() {
+    it ('should add default cost/complete', function() {
       browser.driver.findElement(by.id('costPerComplete')).clear();
       browser.driver.findElement(by.id('costPerComplete')).sendKeys(settings.costPercomplete.cost);
       browser.driver.sleep(2000);
@@ -204,13 +187,25 @@ describe('Login', function() {
     it ('should add default frequency', function() {
       browser.driver.findElement(by.css('[value="Once Off"]')).click().then(function() {
       browser.driver.sleep(5000);
-        browser.driver.findElement(by.css('[data-bind="click:saveAndContinue"]')).click().then(function() {
+      }, 10000);
+    }); 
+
+    it('should add drl', function(){ 
+      browser.driver.findElement(by.css('[data-bind="click:addNewDrlConfirmation"]')).click().then(function() { 
+        browser.driver.findElement(by.css('[data-bind="visible:!isCloning(),jqButton: {}, click: addNewDrl"]')).click().then(function() {
+          browser.driver.sleep(2000);
+          browser.driver.findElement(by.className('required txtBox')).clear();
+          browser.driver.findElement(by.className('required txtBox')).sendKeys(settings.fakeTargetcompletes.targetCount);
+          browser.driver.sleep(2000);
+          browser.driver.findElement(by.css('[data-bind="click:saveAndContinue"]')).click().then(function() {
             browser.driver.sleep(2000);
             expect(browser.getTitle()).toEqual('Create/Update Poll');
-            browser.driver.sleep(10000);
-      }, 10000);
-      }, 10000);
+            browser.driver.sleep(20000);
+          }, 10000);
+        }, 10000);
+      },10000);
     });
+
 
     it('should add new group', function(){
       browser.driver.sleep(10000);

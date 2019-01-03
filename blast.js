@@ -115,4 +115,16 @@ describe('Login', function() {
     }, 10000);
   });
 
+  it('should add p.id', function(){
+    browser.driver.sleep(2000);
+      browser.driver.findElement(by.className('ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-dialog-buttons')).click().then(function(){
+                  browser.driver.findElement(by.className('select2-drop select2-display-none select2-with-searchbox select2-drop-active')).click().then(function() {
+            //browser.driver.findElement(by.className('select2-search')).click().then(function(){
+          
+          //}, 10000);
+                   
+        }, 10000);
+        }, 10000);
+  });
+
 });

@@ -202,6 +202,10 @@ describe('Login', function() {
     it ('should add default frequency', function() {
       browser.driver.findElement(by.css('[value="Once Off"]')).click().then(function() {
       browser.driver.sleep(5000);
+      /*browser.driver.findElement(by.css('[data-bind="click:saveAndContinue"]')).click().then(function() {
+                browser.driver.sleep(2000);
+                expect(browser.getTitle()).toEqual('Create/Update Poll');
+          }, 10000);*/
       }, 10000);
     });
 
@@ -212,15 +216,9 @@ describe('Login', function() {
           browser.driver.findElement(by.className('required txtBox')).clear();
           browser.driver.findElement(by.className('required txtBox')).sendKeys(settings.fakeTargetcompletes.targetCount);
           browser.driver.sleep(10000);
-          //browser.driver.findElement(by.css('button')).click().then(function() { 
-            //browser.driver.sleep(5000);
-            //browser.driver.findElement(by.className('ui-dialog-buttonset')).click().then(function() {
-              //browser.driver.sleep(2000);
               browser.driver.findElement(by.css('[data-bind="click:saveAndContinue"]')).click().then(function() {
                 browser.driver.sleep(2000);
                 expect(browser.getTitle()).toEqual('Create/Update Poll');
-              //}, 10000);
-            //}, 10000);
           }, 10000);
         }, 10000);
       },10000);
@@ -237,5 +235,27 @@ describe('Login', function() {
           }, 10000);
       }, 10000);
     });
+
     
+    //we do this manually 
+  /*it('should upload a file', function() {
+    browser.driver.sleep(20000);
+      expect(browser.getTitle()).toEqual('Questions');
+      browser.driver.findElement(by.css('[data-bind="click:showUploadClick"]')).click().then(function() {
+        browser.driver.findElement(by.className('ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable')).click().then(function() {
+          browser.driver.findElement(by.className('ui-dialog-content ui-widget-content')).click().then(function() {
+            browser.driver.findElement(by.css('[data-bind="visible: fileUploads().length==0"]')).click().then(function() {
+              browser.driver.sleep(10000);
+              //perform upload manually
+            browser.driver.findElement(by.css('19def0d-43d-88c0-f751-3ad3666b8525files')).click().then(function() {
+              browser.driver.findElement(by.css('ui-dialog-titlebar-close ui-corner-all')).click().then(function() {
+                browser.driver.sleep(10000);
+              })
+            })
+          })
+        })
+      })
+    })
+  });*/
+
 });
