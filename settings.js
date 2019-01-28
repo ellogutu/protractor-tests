@@ -19,7 +19,8 @@ exports.costPercomplete = {
 exports.fakePollname = { 
 	pollName: 'ProTest',
 	surveyName: 'ProSurvey',
-	openquestionText: 'Open Text'
+	openquestionText: 'Open Text',
+	onDemand: 'Pro_On_Demand1'
 }
 
 exports.fakeNumber = {
@@ -35,4 +36,8 @@ exports.fakeCloseout = {
 
 exports.fakeBlastmsgno = {
 	noofMsg: '50'
+}
+
+exports.sampleSize = {
+	sample: '50'
 }
