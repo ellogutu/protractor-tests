@@ -54,4 +54,13 @@ describe('Login', function() {
   	  }, 10000);
     });
 
+  	it('should add SS', function(){
+    	browser.driver.sleep(5000);
+    	expect(browser.getTitle()).toEqual('Survey:' + settings.fakePollname.onDemand);
+    	browser.driver.findElement(by.id('sample-target-count')).sendKeys(settings.sampleSize.sample);
+    	browser.driver.findElement(by.className('btn btn-lg btn-default surveyButton')).click().then(function(){
+    		expect(browser.getTitle()).toEqual('Survey:' + settings.fakePollname.onDemand);
+      		});
+    });
+
 });
