@@ -28,16 +28,16 @@ describe('Live links', function() {
      expect(browser.getTitle()).toEqual('Contact Us - GeoPoll');
     });
 
-    it('should load Resilience', function() {
-          browser.get('https://geopoll.com/resilience');
-          browser.driver.sleep(2000);
-          expect(browser.getTitle()).toEqual('Resilience Research in Developing Countries');
-    });
-
     it('should load Support', function() {
           browser.get('https://geopoll.com/user-support');
           browser.driver.sleep(2000);
           //expect(browser.getTitle()).toEqual('');
+    });
+
+    it('should load Resilience', function() {
+          browser.get('https://geopoll.com/resilience');
+          browser.driver.sleep(2000);
+          expect(browser.getTitle()).toEqual('Resilience Research in Developing Countries');
     });
 
     it('should load Out/home', function() {

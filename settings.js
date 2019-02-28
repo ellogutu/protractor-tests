@@ -28,7 +28,6 @@ exports.fakeNumber = {
 	appNo: '254726389967'
 }
 
-
 exports.fakeCloseout = {
 	closed: 'Survey Closed',
 	expired: 'Survey Expired'

@@ -78,7 +78,7 @@ describe('App', function() {
 	    var clientName =  browser.driver.findElement(by.css('.form-group:nth-child(3)')); 
       	clientName.click().then(function() {
         	browser.driver.sleep(2000);
-        	var option =  browser.driver.findElement(by.css('.form-group:nth-child(3) option:nth-child(11)'));
+        	var option =  browser.driver.findElement(by.css('.form-group:nth-child(3) option:nth-child(13)'));
         	option.click().then(function() {
 	    	}, 10000);
 	    });
@@ -131,26 +131,60 @@ describe('App', function() {
         	browser.driver.findElement(by.css('[data-bind="click:saveAndContinue"]')).click().then(function() {
 				expect(browser.driver.findElement(by.css('.validation-summary-errors li:nth-child(1)')).getText()).toEqual("Message Text is required for all Close-Out messages.");
 				expect(browser.driver.findElement(by.css('.validation-summary-errors li:nth-child(2)')).getText()).toEqual("Expire Survey Message is required form App surveys");
+		        //browser.driver.sleep(5000);
+		       // browser.driver.findElement(by.css('[data-bind="value: message"]')).sendKeys(settings.fakeCloseout.closed);
 		        browser.driver.sleep(2000);
 			}, 10000);
         }, 10000);
     });
 
 	it('should add expired textbox', function() { 
-        browser.driver.findElement(by.css('[value="Expired Survey Message"]')).click().then(function() { 
+        browser.driver.findElement(by.css('[value="Expired Survey Message"]')).click().then(function() {
         	browser.driver.findElement(by.css('[data-bind=" jqButton: {}, click: addPollMessage"]')).click().then(function() { 
+	        	//browser.driver.sleep(5000);
+        	//browser.driver.findElement(by.css('[data-bind="value: message"]')).sendKeys(settings.fakeCloseout.expired);
+        	browser.driver.sleep(5000);
 	        	browser.driver.findElement(by.css('[data-bind="click:saveAndContinue"]')).click().then(function() {
 					expect(browser.driver.findElement(by.css('.validation-summary-errors li:nth-child(1)')).getText()).toEqual("Message Text is required for all Close-Out messages.");
 					expect(browser.driver.findElement(by.css('.validation-summary-errors li:nth-child(2)')).getText()).toEqual("Message Text is required for all Close-Out messages.");
-			        browser.driver.sleep(2000);
+			        /*browser.driver.sleep(5000);
+			        browser.driver.findElement(by.css('[data-bind="value: message"]')).sendKeys(settings.fakeCloseout.expired);
+			        browser.driver.sleep(2000);*/
 				}, 10000);
 			}, 10000);	
 	    }, 10000);
     });
 
 	it('should add closed text', function() {
+		browser.driver.sleep(5000);
 		browser.driver.findElement(by.css('[data-bind="value: message"]')).sendKeys(settings.fakeCloseout.closed);
-		browser.driver.findElement(by.css('[data-bind="value: message"]')).sendKeys(settings.fakeCloseout.expired);
+		
+		//browser.driver.findElement(by.css('[data-bind="value: message"]')).sendKeys(settings.fakeCloseout.expired);
+		browser.driver.sleep(5000);
+		//browser.driver.findElement(by.css('.clearfix textarea-div:nth-child(6)')).click().then(function() {
+
+		})
+		//sendKeys(settings.fakeCloseout.expired);
+		browser.driver.sleep(5000);
 	});
+
+	it('should add expired text', function() {
+		browser.driver.findElement(by.className('polltable')).click().then(function() {
+			browser.driver.findElement(by.css('.clearfix textarea-div:nth-child(2)')).click().then(function() {
+				browser.driver.sleep(5000);
+		})
+		});
+
+		
+		/*browser.driver.sleep(5000);
+		browser.driver.findElement(by.css('[data-bind="foreach: pollMessages"]')).click().then(function() { 
+			browser.driver.sleep(5000);
+			browser.driver.findElement(by.css('[data-bind="text: pollMessageEvent"]')).click().then(function() {
+				browser.driver.sleep(5000);
+				browser.driver.findElement(by.className('clearfix textarea-div')).sendKeys(settings.fakeCloseout.expired);
+				browser.driver.sleep(5000);
+			})
+		})
+	});*/
 
 });
