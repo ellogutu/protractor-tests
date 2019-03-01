@@ -3,6 +3,7 @@ var fs = require('fs');
 var settings = require('./settings');
 var username = process.env.GP_USER;
 var password = process.env.GP_PASSWORD;
+var number = process.env.GP_NUMBER;
 
 beforeEach(function() {
 	browser.ignoreSynchronization = true;
@@ -49,5 +50,22 @@ describe('Gp-U checks', function() {
 			browser.driver.sleep(2000);
 		}, 10000);
 	});
+
+	it('should search', function() {
+		browser.driver.findElement(by.css('[value="By Mobile Numbers"]')).click().then(function() {
+			browser.driver.sleep(2000);
+			browser.driver.findElement(by.id('excludedusers')).click().then(function() {
+				browser.driver.findElement(by.className('title_bar_box')).click().then(function() {
+					browser.driver.findElement(by.css('[data-bind="visible: carriers().length > 0"]')).click().then(function() {
+						browser.driver.findElement(by.className('form-input-right')).sendKeys(number);
+						browser.driver.sleep(2000);
+						browser.driver.findElement(by.className('ui-button-text')).click().then(function() {
+							browser.driver.sleep(20000);
+						})
+					})
+				})
+			})
+		})
+	})
 
 });
