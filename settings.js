@@ -23,11 +23,6 @@ exports.fakePollname = {
 	onDemand: 'Pro_On_Demand1'
 }
 
-exports.fakeNumber = {
-	number: 'tt88yy55',
-	appNo: '254726389967'
-}
-
 exports.fakeCloseout = {
 	closed: 'Survey Closed',
 	expired: 'Survey Expired'
